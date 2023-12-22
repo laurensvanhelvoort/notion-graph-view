@@ -14,6 +14,14 @@ class NotionClient:
         self.session.headers.update(self.headers)
         self.NOTION_BASE_URL = 'https://api.notion.com/v1/'
 
+        if not self.is_token_valid():
+            raise ValueError("Invalid API token. Please provide a valid Notion API integration token.")
+
+    def is_token_valid(self):
+        url = urljoin(self.NOTION_BASE_URL, "users/me")
+        response = self.session.get(url)
+        return response.status_code == 200
+
     def get_page_title(self, page_id):
         url = urljoin(self.NOTION_BASE_URL, f"pages/{page_id}")
         response = self.session.get(url)
@@ -31,7 +39,6 @@ class NotionClient:
             title_match = re.search(r"(?<=notion.so/)[^?]+", url)
             if title_match:
                 sanitized_page_title = title_match.group(0).replace(f"-{root_page_id}", "").replace("-", " ")
-
                 return root_page_id, sanitized_page_title
             else:
                 raise Exception("Invalid URL format. Unable to extract root page title.")

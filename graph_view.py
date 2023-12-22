@@ -1,5 +1,6 @@
 from pyvis.network import Network
 import webbrowser
+import os
 
 
 class GraphView:
@@ -12,7 +13,8 @@ class GraphView:
 
     def populate_graph_from_pairs(self, node_pairs):
         if not node_pairs:
-            raise Exception("No node pairs found.")
+            raise Exception(
+                "No node pairs found. Please check if the provided Notion workspace url is correct and the integration has access to your workspace.")
         for parent, child in node_pairs:
             self.graph.add_node(parent, label=parent, color=self.accent_col, size=self.node_size)
             self.graph.add_node(child, label=child, color=self.accent_col, size=self.node_size)
@@ -55,7 +57,10 @@ class GraphView:
             html_file.write(styled_content)
 
     def display_graph(self, title, node_pairs):
-        html_path = title + ".html"
+        folder_name = "graphs"
+        os.makedirs(folder_name, exist_ok=True)
+
+        html_path = os.path.join(folder_name, title + ".html")
 
         self.create_graph()
         self.populate_graph_from_pairs(node_pairs)
