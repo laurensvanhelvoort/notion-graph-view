@@ -1,5 +1,4 @@
 from urllib.parse import urljoin
-import json
 
 
 class LinkedPagesExtractor:
