@@ -6,7 +6,7 @@ Features
 - Automatically extract linked pages within your workspace to establish connections for graph visualization.
 - Generate an interactive graph view, inspired by Obsidian, to visualize relationships between pages in your Notion workspace.
 - This graph is saved as an `.html` file and automatically opened by the program upon creation.
-##
+## Example
 Example graph:
 > This example can be found in the examples folder of this project ('My Notion dashboard.html'). Open it in your browser to interact with it.
 
