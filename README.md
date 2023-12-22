@@ -8,7 +8,11 @@ Features
 - This graph is saved as an `.html` file and automatically opened by the program upon creation.
 ##
 Example graph:
+
 ![image](https://github.com/laurensvanhelvoort/notion-graph-view/assets/74211074/1e37798c-d1c4-4c1d-9049-4aa436d73c36)
+
+Zoomed and dragged:
+![image](https://github.com/laurensvanhelvoort/notion-graph-view/assets/74211074/38dfaadb-a1c2-42d2-827b-be0daac615b2)
 
 
 ## Getting Started
